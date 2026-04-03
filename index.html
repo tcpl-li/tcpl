@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCPL | The Total Chaos Public License</title>
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #d4d4d4;
+            --accent: #ff3e3e;
+            --code-bg: #161616;
+        }
+
+        body {
+            font-family: 'Cascadia Code', 'Courier New', monospace;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .license-box {
+            background-color: var(--code-bg);
+            border: 1px solid #333;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-radius: 4px;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.95rem;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: inherit;
+            border-radius: 3px;
+            transition: transform 0.1s;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        section {
+            margin-top: 3rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-q {
+            font-weight: bold;
+            color: #fff;
+            display: block;
+        }
+
+        footer {
+            margin-top: 5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .glitch {
+            animation: glitch 1s linear infinite;
+        }
+
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px,0) skew(0deg); }
+            4%, 60% { transform: translate(-2px,0) skew(0deg); }
+            62% { transform: translate(0,0) skew(5deg); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="glitch">TCPL 1.0</h1>
+        <p class="subtitle">The Total Chaos Public License: For when you literally do not care.</p>
+    </header>
+
+    <div class="license-box">
+        <button class="copy-btn" onclick="copyLicense()">COPY TEXT</button>
+        <pre id="license-text">
+THE TOTAL CHAOS PUBLIC LICENSE
+Version 1.0, April 2026
+
+0. PURPOSE
+This license is for people who do not care. The author has 
+explicitly abandoned all interest in this work.
+
+1. FREEDOM TO "STEAL"
+You are hereby encouraged to copy, modify, distribute, sell, 
+rebrand, or "steal" this work. You can use it for your 
+multibillion-dollar corporation, your hobby project, or your 
+world-domination plot. 
+
+2. NO STRINGS ATTACHED
+You do not need to give credit. You do not need to mention the 
+original author's name. You can delete this license from your 
+own version and pretend you wrote the whole thing yourself. 
+The author truly does not care.
+
+3. YOUR PROBLEM (DISCLAIMER)
+THIS WORK IS PROVIDED "AS IS." IF THIS SOFTWARE BREAKS YOUR 
+COMPUTER, ERASES YOUR DATA, SETS YOUR HOUSE ON FIRE, OR STARTS 
+AN INTERNATIONAL INCIDENT, THAT IS ENTIRELY YOUR PROBLEM. 
+
+THE AUTHOR HOLDS ZERO LIABILITY AND WILL NOT HELP YOU. YOU ARE 
+ON YOUR OWN. BY USING THIS WORK, YOU AGREE THAT YOU HAVE NO 
+RECOURSE AND THE AUTHOR IS BLAMELESS FOR YOUR MISFORTUNE.
+
+DO WHATEVER YOU WANT.</pre>
+    </div>
+
+    <section id="faq">
+        <h2>FAQ</h2>
+        
+        <div class="faq-item">
+            <span class="faq-q">Is this legally binding?</span>
+            <span class="faq-a">Probably not in a way that helps you, but definitely in a way that helps the author ignore your emails.</span>
+        </div>
+
+        <div class="faq-item">
+            <span class="faq-q">What if my house actually catches fire?</span>
+            <span class="faq-a">Refer to Section 3: That is your problem.</span>
+        </div>
+
+        <div class="faq-item">
+            <span class="faq-q">Do I have to include this file in my project?</span>
+            <span class="faq-a">No. Steal the license too. Delete it. Burn it. Do whatever you want.</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>No Rights Reserved. Created by a human (probably) who wants to be left alone.</p>
+    </footer>
+</div>
+
+<script>
+    function copyLicense() {
+        const text = document.getElementById('license-text').innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.querySelector('.copy-btn');
+            btn.innerText = 'COPIED!';
+            btn.style.background = '#4CAF50';
+            setTimeout(() => {
+                btn.innerText = 'COPY TEXT';
+                btn.style.background = '#ff3e3e';
+            }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
